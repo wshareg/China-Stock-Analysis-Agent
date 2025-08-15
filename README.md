@@ -78,6 +78,10 @@ pip install -r requirements.txt
 
 3. **配置环境变量**
 ```bash
+# 方法一：使用安全设置脚本（推荐）
+./setup.sh
+
+# 方法二：手动配置
 cp .env.example .env
 ```
 
@@ -87,6 +91,8 @@ TUSHARE_TOKEN=你的_tushare_pro_token
 OPENAI_API_KEY=你的_openai_api_key   # 必填，用于 GPT-4o 分析
 OPENAI_MODEL=gpt-4o                  # 可选，默认 gpt-4o
 ```
+
+> 🔒 **安全提醒**：`.env` 文件包含敏感信息，已被添加到 `.gitignore` 中，不会被提交到 Git 仓库。
 
 4. **启动应用**
 ```bash
@@ -283,6 +289,20 @@ A: 点击"生成PDF报告"创建报告，然后点击"下载PDF报告"保存到�
 - 查看控制台错误信息
 - 检查 API 账户余额和权限
 - 确认 Python 版本兼容性（3.10+）
+
+## 🔒 安全配置
+
+### API 密钥保护
+- 项目使用 `.env` 文件存储敏感信息
+- `.env` 文件已被添加到 `.gitignore` 中
+- 使用 `./setup.sh` 脚本安全配置 API 密钥
+
+### 安全检查
+- 确保没有硬编码的 API 密钥
+- 定期轮换 API 密钥
+- 监控 API 使用情况
+
+详细的安全配置指南请查看 [SECURITY.md](SECURITY.md)。
 
 ---
 
